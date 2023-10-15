@@ -1,15 +1,24 @@
 ﻿#NoTrayIcon
     
 Steam := "C:\Program Files (x86)\Steam\Steam.exe"
+LGTVCompanion := "C:\Program Files\LGTV Companion\LGTVcli.exe"
 DisplaySwitch := "C:\WINDOWS\system32\DisplaySwitch.exe"
 
 ^#g:: ; Ctrl + Win + G
 {
     ; Switch to TV 
-    RunWait, %DisplaySwitch% /external,, Hide
-    Sleep 1000 ; Let switch occur
+    Run, %DisplaySwitch% /external,, Hide
+
+    ; Setup TV
+    Run, %LGTVCompanion% -setHdmi1,, Hide
+    Run, %LGTVCompanion% -gameMode_hdmi1 on,, Hide
+    Run, %LGTVCompanion% -uhdDeepColor_hdmi1 on,, Hide
+    Run, %LGTVCompanion% -gameOptimization_hdmi1 on,, Hide
+    Run, %LGTVCompanion% -freesyncOled_hdmi1 on,, Hide
+    Run, %LGTVCompanion% -hdmiPcMode_hdmi1 on,, Hide
 
     ; Start Steam Big Picture Mode
+    Sleep 1000 ; Wait for screen switch
     Process, Exist, Steam.exe
     if ErrorLevel
         Run, steam://open/bigpicture
