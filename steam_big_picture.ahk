@@ -1,4 +1,4 @@
-﻿#NoTrayIcon
+﻿NoTrayIcon
     
 Steam := "C:\Program Files (x86)\Steam\Steam.exe"
 LGTVCompanion := "C:\Program Files\LGTV Companion\LGTVcli.exe"
