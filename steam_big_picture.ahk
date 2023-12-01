@@ -1,10 +1,11 @@
-﻿NoTrayIcon
+﻿#NoTrayIcon
+#SingleInstance
     
-Steam := "C:\Program Files (x86)\Steam\Steam.exe"
+Steam := "C:\Program Files (x86)\Steam\steam.exe"
 LGTVCompanion := "C:\Program Files\LGTV Companion\LGTVcli.exe"
 DisplaySwitch := "C:\WINDOWS\system32\DisplaySwitch.exe"
 
-^#g:: ; Ctrl + Win + G
+^#p:: ; Ctrl + Win + P
 {
     ; Switch to TV 
     Run, %DisplaySwitch% /external,, Hide
